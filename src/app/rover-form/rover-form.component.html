@@ -1,0 +1,7 @@
+<div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Plateau Coordinates</mat-label>
+      <input matInput placeholder="5 5" [formControl]="plateau" required>
+      <mat-error *ngIf="plateau.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
