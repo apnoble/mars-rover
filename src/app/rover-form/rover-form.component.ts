@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-rover-form',
@@ -9,6 +10,8 @@ import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 export class RoverFormComponent implements OnInit {
 
   plateau = new FormControl('', [Validators.required, Validators.email]);
+  rover = new FormControl('', [Validators.required, Validators.email]);
+  instructions = new FormControl('', [Validators.required, Validators.email]);
 
   constructor() { }
 
@@ -20,6 +23,11 @@ export class RoverFormComponent implements OnInit {
       return 'You must enter a value';
     }
 
-    return this.plateau.hasError('plateau') ? 'Not a valid email' : '';
+    return this.plateau.hasError('email') ? 'Not a valid email' : '';
   }
+
+
+
+
+
 }
