@@ -7,4 +7,8 @@ export class Plateau {
         this.upperX = upperX;
         this.upperY = upperY;
     }
+
+    public doesLocationExist(x: number, y: number) {
+        return (x <= this.upperX && y <= this.upperY);
+    }
 }

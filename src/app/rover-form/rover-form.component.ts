@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, ReactiveFormsModule, Validators, FormBuilder, FormArray} from '@angular/forms';
+import { RoverService } from '../rover.service';
+
 
 @Component({
   selector: 'app-rover-form',
@@ -14,7 +16,12 @@ export class RoverFormComponent implements OnInit {
     instructions: ['', [Validators.required, Validators.pattern('[LMN]+')]]
   });
 
-  constructor(private fb: FormBuilder) { }
+  output: any;
+  x:any;
+  y:any;
+  orientation: any;
+
+  constructor(private fb: FormBuilder, private roverService: RoverService) { }
 
   ngOnInit(): void {
   }
@@ -59,6 +66,11 @@ export class RoverFormComponent implements OnInit {
   onSubmit(): void {
     console.log(this.inputForm);
     console.log("submit success");
+
+    this.output = this.roverService.getOutput(this.inputForm.value);
+    this.x = this.output.x;
+    this.y = this.output.y;
+    this.orientation = this.output.orientation;
   }
 
 
