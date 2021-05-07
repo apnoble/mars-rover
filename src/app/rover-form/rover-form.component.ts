@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormControl, ReactiveFormsModule, Validators, FormBuilder, FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-rover-form',
@@ -8,43 +8,58 @@ import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
 })
 export class RoverFormComponent implements OnInit {
 
-  plateau = new FormControl('', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+$')]);
-  rover = new FormControl('', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]);
-  instructions = new FormControl('', [Validators.required, Validators.pattern('[LMN]+')]);
+  inputForm = this.fb.group({
+    plateau: ['', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+$')]],
+    rover: ['', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]],
+    instructions: ['', [Validators.required, Validators.pattern('[LMN]+')]]
+  });
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
   getErrorMessage(from: string) {
 
+    let controls = this.inputForm.controls;
+
     if (from === "plateau") {
-      if (this.plateau.hasError('required')) {
+      if (controls.plateau.hasError('required')) {
         return 'You must enter a value';
       }
   
-      if (this.plateau.hasError('pattern')) {
+      else if (controls.plateau.hasError('pattern')) {
         return 'Please enter two whole numbers separated by a space';
       }
     } else if (from === 'rover') {
-      if (this.rover.hasError('required')) {
+      if (controls.rover.hasError('required')) {
         return 'You must enter a value';
       }
   
-      if (this.rover.hasError('pattern')) {
+      if (controls.rover.hasError('pattern')) {
         return 'Please enter two whole numbers, and a direction (N, S, E, W), separated by spaces e.g. 12 5 W';
       }
     } else if (from === 'instructions') {
-      if (this.instructions.hasError('required')) {
+      if (controls.instructions.hasError('required')) {
         return 'You must enter a value';
       }
   
-      if (this.instructions.hasError('pattern')) {
+      if (controls.instructions.hasError('pattern')) {
         return 'Please enter a string of instructions with no spaces and only the values L, R, or M e.g. LMLMLMLMLMLMR';
       }
     }
   
     return '';
   }
+
+  onClick(): void {
+    //console.log(this.plateau.value);
+  }
+
+  onSubmit(): void {
+    console.log(this.inputForm);
+    console.log("submit success");
+  }
+
+
 }
