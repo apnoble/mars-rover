@@ -1,5 +1,5 @@
 export enum Instruction {
-    TurnLeft,
-    MoveForward,
-    TurnRight
+    TurnLeft = "L",
+    MoveForward = "M",
+    TurnRight = "R"
 }

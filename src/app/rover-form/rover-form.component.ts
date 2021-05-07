@@ -44,7 +44,7 @@ export class RoverFormComponent implements OnInit {
       }
   
       if (controls.rover.hasError('pattern')) {
-        return 'Please enter two whole numbers, and a direction (N, S, E, W), separated by spaces e.g. 12 5 W';
+        return 'Please enter two whole numbers, and a direction (N, S, E, or W), separated by spaces e.g. 12 5 W';
       }
     } else if (from === 'instructions') {
       if (controls.instructions.hasError('required')) {
@@ -64,8 +64,6 @@ export class RoverFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.inputForm);
-    console.log("submit success");
 
     this.output = this.roverService.getOutput(this.inputForm.value);
     this.x = this.output.x;
