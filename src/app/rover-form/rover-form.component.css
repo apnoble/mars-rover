@@ -3,18 +3,30 @@
 }
 
 .form-container {
-    
+    display:flex;
+    flex-direction: row;
     margin-left: 20%;
-    margin-right: 20%;
+    margin-right: 20%; 
     margin-top: 5%;
+    
+    justify-content: center;
 }
 
 .form-group {
     display:flex;
     flex-direction: column;
+    margin-right: 10%
 }
 
 .rover-group {
     display:flex;
     flex-direction: column;
+}
+
+.output-table {
+    
+}
+
+.add-remove-button-group {
+    margin-bottom: 5%;
 }

@@ -1,6 +1,7 @@
 <div class="form-container">
-    <h1>Rover Input Form</h1>
+    
     <form (ngSubmit)="onSubmit()" class="form-group" [formGroup] = "inputForm">
+        <h1>Rover Input Form</h1>
         <mat-form-field appearance="fill">
             <mat-label>Plateau Coordinates</mat-label>
             <input matInput placeholder="5 5" formControlName="plateau" required>
@@ -11,7 +12,7 @@
             
             <div class="rover-group" *ngFor="let item of getRoversArray(); let i=index" [formGroupName] = i>
                 
-                    <h3>Rover {{i + 1}} </h3>
+                    <h5>Rover {{i + 1}} </h5>
                     <mat-form-field appearance="fill">
                     <mat-label>Rover Coordinates and Orientation</mat-label>
                     <input matInput placeholder="1 2 N" formControlName="rover" required>
@@ -26,32 +27,29 @@
                 </mat-form-field>
             </div>
         </div>
-        <div>
-            <button mat-raised-button color="basic" (click)="addRover()">Add Additional Rover</button>
-            <button mat-raised-button color="basic" (click)="removeRover()">Remove Last Rover</button>
+        <div class="add-remove-button-group">
+            <button mat-raised-button color="basic" (click)="addRover()" type="button">Add Additional Rover</button>
+            <button mat-raised-button color="basic" (click)="removeRover()" type="button">Remove Last Rover</button>
         </div>
         
         <button mat-raised-button color="primary" [disabled]="!inputForm.valid" type="submit">Submit</button>
     </form>
+    <div>
+        <h1>Rover Output Table</h1>
+        <table class="output-table">
+            <tr>
+                <th>#</th>
+                <th>X</th>
+                <th>Y</th>
+                <th>Orientation</th>
+            </tr>
+            <tr *ngFor = "let result of output; let roverNumber = index">
+                <td>Rover # {{roverNumber + 1}}</td>
+                <td>{{result.x}}</td>
+                <td>{{result.y}}</td> 
+                <td>{{result. orientation}}</td>
+            </tr>
 
-    <table>
-        <tr>
-            <th>#</th>
-            <th>X</th>
-            <th>Y</th>
-            <th>Orientation</th>
-        </tr>
-        <tr *ngFor = "let result of output; let roverNumber = index">
-            <td>Rover # {{roverNumber + 1}}</td>
-            <td>{{result.x}}</td>
-            <td>{{result.y}}</td> 
-            <td>{{result. orientation}}</td>
-        </tr>
-
-    </table>
-    <!-- <div *ngFor = "let result of output; let roverNumber = index">
-        {{roverNumber + 1}} : {{result.x}} {{result.y}} {{result. orientation}}
-    </div> -->
-
-    <!-- <p>{{x}} {{y}} {{orientation}}</p> -->
+        </table>
+    </div>
 </div>

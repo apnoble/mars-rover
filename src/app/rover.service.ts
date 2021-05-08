@@ -8,6 +8,7 @@ import { Orientation } from './orientation';
 @Injectable({
 	providedIn: 'root',
 })
+
 export class RoverService {
 	constructor(private commandService: CommandService) {}
 
