@@ -7,18 +7,28 @@
             <mat-error *ngIf="inputForm.controls.plateau.invalid">{{getErrorMessage("plateau")}}</mat-error>
         </mat-form-field>
         
-        <mat-form-field appearance="fill">
-            <mat-label>Rover Coordinates and Rover Orientation</mat-label>
-            <input matInput placeholder="1 2 N" formControlName="rover" required>
-            <mat-error *ngIf="inputForm.controls.rover.invalid">{{getErrorMessage("rover")}}</mat-error>
-        </mat-form-field>
+        <div formArrayName ="roversArray">
+            <button (click)="addRover()">Add Rover</button>
+            <div *ngFor="let item of getRoversArray(); let i=index" [formGroupName] = i>
+                
+                    <!-- <h3>Rover {{i + 1}} </h3>
+                    <h3>Rover {{roverGroup.rover}} </h3>
+                    <h3>Rover {{i + 1}} </h3> -->
+                    <mat-form-field appearance="fill">
+                    <mat-label>Rover Coordinates and Orientation</mat-label>
+                    <input matInput placeholder="1 2 N" formControlName="rover" required>
+                    <!-- <mat-error *ngIf="inputForm.controls.rover.invalid">{{getErrorMessage("rover")}}</mat-error> -->
+                    </mat-form-field>
+                
+                
 
-        <mat-form-field appearance="fill">
-            <mat-label>Instructions</mat-label>
-            <input matInput placeholder="LMLMLMLMM" formControlName="instructions" required>
-            <mat-error *ngIf="inputForm.controls.instructions.invalid">{{getErrorMessage("instructions")}}</mat-error>
-        </mat-form-field>
-        
+                <!-- <mat-form-field appearance="fill">
+                    <mat-label>Instructions</mat-label>
+                    <input matInput placeholder="LMLMLMLMM" formControlName="instructions" required>
+                    <mat-error *ngIf="inputForm.controls.instructions.invalid">{{getErrorMessage("instructions")}}</mat-error>
+                </mat-form-field> -->
+            </div>
+        </div>
         <button mat-raised-button color="primary" [disabled]="!inputForm.valid" type="submit">Submit</button>
     </form>
 

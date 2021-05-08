@@ -12,9 +12,16 @@ export class RoverFormComponent implements OnInit {
 
   inputForm = this.fb.group({
     plateau: ['', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+$')]],
-    rover: ['', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]],
-    instructions: ['', [Validators.required, Validators.pattern('[LMN]+')]]
+    roversArray: this.fb.array([
+        this.fb.group({
+            rover: this.fb.control('', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]),
+            intructions: this.fb.control('', [Validators.required, Validators.pattern('[LMN]+')])
+        })
+    ]),
   });
+
+  //rover: ['', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]],
+  //instructions: ['', [Validators.required, Validators.pattern('[LMN]+')]]
 
   output: any;
   x:any;
@@ -25,6 +32,11 @@ export class RoverFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  getRoversArray() {
+    return (this.inputForm.get('roversArray') as FormArray).controls;
+  }
+
 
   getErrorMessage(from: string) {
 
@@ -61,15 +73,25 @@ export class RoverFormComponent implements OnInit {
 
   onClick(): void {
     //console.log(this.plateau.value);
+    
   }
 
   onSubmit(): void {
 
-    this.output = this.roverService.getOutput(this.inputForm.value);
-    this.x = this.output.x;
-    this.y = this.output.y;
-    this.orientation = this.output.orientation;
+    // this.output = this.roverService.getOutput(this.inputForm.value);
+    // this.x = this.output.x;
+    // this.y = this.output.y;
+    // this.orientation = this.output.orientation;
   }
 
+  addRover(): void {
+      (this.inputForm.controls.roversArray as FormArray).push(this.fb.group({
+        rover: this.fb.control('', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]),
+        intructions: this.fb.control('', [Validators.required, Validators.pattern('[LMN]+')])
+    }));
+  }
+//   getRoversArrayControls() {
+//       return (this.roversArray.controls)
+//   }
 
 }
