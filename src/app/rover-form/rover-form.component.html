@@ -34,8 +34,24 @@
         <button mat-raised-button color="primary" [disabled]="!inputForm.valid" type="submit">Submit</button>
     </form>
 
-    <div *ngFor = "let result of output; let roverNumber = index">
+    <table>
+        <tr>
+            <th>#</th>
+            <th>X</th>
+            <th>Y</th>
+            <th>Orientation</th>
+        </tr>
+        <tr *ngFor = "let result of output; let roverNumber = index">
+            <td>Rover # {{roverNumber + 1}}</td>
+            <td>{{result.x}}</td>
+            <td>{{result.y}}</td> 
+            <td>{{result. orientation}}</td>
+        </tr>
+
+    </table>
+    <!-- <div *ngFor = "let result of output; let roverNumber = index">
         {{roverNumber + 1}} : {{result.x}} {{result.y}} {{result. orientation}}
-    </div>
+    </div> -->
+
     <!-- <p>{{x}} {{y}} {{orientation}}</p> -->
 </div>
