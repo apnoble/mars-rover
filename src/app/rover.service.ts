@@ -13,12 +13,27 @@ export class RoverService {
 
 	getOutput(data: any) {
 		let plateau = this.commandService.parsePlateauString(data.plateau);
-		let rover = this.commandService.parseRoverString(data.rover);
-		let instructions = this.commandService.parseInstructionsString(data.instructions);
+        console.log(data);
 
-		if (typeof rover === "string") return rover;
+        let result = [];
+        for (let item of data.roversArray) {
+            let rover = this.commandService.parseRoverString(item.rover);
+            let instructions = this.commandService.parseInstructionsString(item.instructions);
 
-		return this.getEndLocation(plateau, rover, instructions);
+            if (typeof rover === "string") { 
+                console.log(rover);
+            } else {
+                result.push(this.getEndLocation(plateau, rover, instructions))
+            }
+        }
+
+        return result;
+		// let rover = this.commandService.parseRoverString(data.rover);
+		// let instructions = this.commandService.parseInstructionsString(data.instructions);
+
+		// if (typeof rover === "string") return rover;
+
+		// return this.getEndLocation(plateau, rover, instructions);
   	}
 
   	getEndLocation(plateau: Plateau, rover: Rover, instructions: Instruction[]) {

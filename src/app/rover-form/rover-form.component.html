@@ -8,12 +8,10 @@
         </mat-form-field>
         
         <div formArrayName ="roversArray">
-            <button (click)="addRover()">Add Rover</button>
-            <div *ngFor="let item of getRoversArray(); let i=index" [formGroupName] = i>
+            
+            <div class="rover-group" *ngFor="let item of getRoversArray(); let i=index" [formGroupName] = i>
                 
-                    <!-- <h3>Rover {{i + 1}} </h3>
-                    <h3>Rover {{roverGroup.rover}} </h3>
-                    <h3>Rover {{i + 1}} </h3> -->
+                    <h3>Rover {{i + 1}} </h3>
                     <mat-form-field appearance="fill">
                     <mat-label>Rover Coordinates and Orientation</mat-label>
                     <input matInput placeholder="1 2 N" formControlName="rover" required>
@@ -21,16 +19,23 @@
                     </mat-form-field>
                 
                 
-
-                <!-- <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill">
                     <mat-label>Instructions</mat-label>
                     <input matInput placeholder="LMLMLMLMM" formControlName="instructions" required>
-                    <mat-error *ngIf="inputForm.controls.instructions.invalid">{{getErrorMessage("instructions")}}</mat-error>
-                </mat-form-field> -->
+                    <!-- <mat-error *ngIf="inputForm.controls.instructions.invalid">{{getErrorMessage("instructions")}}</mat-error> -->
+                </mat-form-field>
             </div>
         </div>
+        <div>
+            <button mat-raised-button color="basic" (click)="addRover()">Add Additional Rover</button>
+            <button mat-raised-button color="basic" (click)="removeRover()">Remove Last Rover</button>
+        </div>
+        
         <button mat-raised-button color="primary" [disabled]="!inputForm.valid" type="submit">Submit</button>
     </form>
 
-    <p>{{x}} {{y}} {{orientation}}</p>
+    <div *ngFor = "let result of output; let roverNumber = index">
+        {{roverNumber + 1}} : {{result.x}} {{result.y}} {{result. orientation}}
+    </div>
+    <!-- <p>{{x}} {{y}} {{orientation}}</p> -->
 </div>

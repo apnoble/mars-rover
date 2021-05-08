@@ -15,18 +15,12 @@ export class RoverFormComponent implements OnInit {
     roversArray: this.fb.array([
         this.fb.group({
             rover: this.fb.control('', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]),
-            intructions: this.fb.control('', [Validators.required, Validators.pattern('[LMN]+')])
+            instructions: this.fb.control('', [Validators.required, Validators.pattern('[LMN]+')])
         })
     ]),
   });
 
-  //rover: ['', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]],
-  //instructions: ['', [Validators.required, Validators.pattern('[LMN]+')]]
-
   output: any;
-  x:any;
-  y:any;
-  orientation: any;
 
   constructor(private fb: FormBuilder, private roverService: RoverService) { }
 
@@ -78,20 +72,18 @@ export class RoverFormComponent implements OnInit {
 
   onSubmit(): void {
 
-    // this.output = this.roverService.getOutput(this.inputForm.value);
-    // this.x = this.output.x;
-    // this.y = this.output.y;
-    // this.orientation = this.output.orientation;
+    this.output = this.roverService.getOutput(this.inputForm.value);
   }
 
   addRover(): void {
       (this.inputForm.controls.roversArray as FormArray).push(this.fb.group({
         rover: this.fb.control('', [Validators.required, Validators.pattern('[0-9]+\\\s[0-9]+\\\s[NSEW]')]),
-        intructions: this.fb.control('', [Validators.required, Validators.pattern('[LMN]+')])
+        instructions: this.fb.control('', [Validators.required, Validators.pattern('[LMN]+')])
     }));
   }
-//   getRoversArrayControls() {
-//       return (this.roversArray.controls)
-//   }
 
+  removeRover(): void {
+        let length = (this.inputForm.controls.roversArray as FormArray).length;
+        (this.inputForm.controls.roversArray as FormArray).removeAt(length - 1);
+  }
 }

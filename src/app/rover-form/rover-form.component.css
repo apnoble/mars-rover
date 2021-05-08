@@ -13,3 +13,8 @@
     display:flex;
     flex-direction: column;
 }
+
+.rover-group {
+    display:flex;
+    flex-direction: column;
+}
