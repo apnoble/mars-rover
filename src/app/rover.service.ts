@@ -28,12 +28,6 @@ export class RoverService {
         }
 
         return result;
-		// let rover = this.commandService.parseRoverString(data.rover);
-		// let instructions = this.commandService.parseInstructionsString(data.instructions);
-
-		// if (typeof rover === "string") return rover;
-
-		// return this.getEndLocation(plateau, rover, instructions);
   	}
 
   	getEndLocation(plateau: Plateau, rover: Rover, instructions: Instruction[]) {
