@@ -12,14 +12,14 @@ import { Orientation } from './orientation';
 export class RoverService {
 	constructor(private commandService: CommandService) {}
 
-	getOutput(data: any) {
-		let plateau = this.commandService.parsePlateauString(data.plateau);
-        console.log(data);
+    // Gets the output values for all of the rovers
+	getOutput(data: any) : Array<any> {
+		let plateau: Plateau = this.commandService.parsePlateauString(data.plateau);
 
         let result = [];
         for (let item of data.roversArray) {
-            let rover = this.commandService.parseRoverString(item.rover);
-            let instructions = this.commandService.parseInstructionsString(item.instructions);
+            let rover: Rover | string = this.commandService.parseRoverString(item.rover);
+            let instructions: Instruction[]= this.commandService.parseInstructionsString(item.instructions);
 
             if (typeof rover === "string") { 
                 console.log(rover);
@@ -31,9 +31,10 @@ export class RoverService {
         return result;
   	}
 
-  	getEndLocation(plateau: Plateau, rover: Rover, instructions: Instruction[]) {
-		let curX = rover.getX();
-		let curY = rover.getY();
+    // Calculates a rover's end location and orientation and returns it as an object
+  	getEndLocation(plateau: Plateau, rover: Rover, instructions: Instruction[]) : {x:number, y: number, orientation: string} | string {
+		let curX: number = rover.getX();
+		let curY: number = rover.getY();
 
 		if (plateau.doesLocationExist(curX, curY) === false) {
 			return 'Rover start location is out of bounds';
@@ -112,6 +113,4 @@ export class RoverService {
 
 		return {x: curX, y: curY, orientation:rover.orientation};
   	}
-
-	
 }

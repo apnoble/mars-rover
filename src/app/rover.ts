@@ -12,10 +12,10 @@ export class Rover {
         this.yLoc = yLoc;
         this.orientation = orientation;
     }
-    getX() {
+    getX() : number {
         return this.xLoc;
     }
-    getY() {
+    getY() : number {
         return this.yLoc;
     }
 }

@@ -15,7 +15,7 @@ export class CommandService {
 
     // Converts an input string into a Plateau object and returns it.
     // TODO add error handling for invalid input
-    parsePlateauString(plateauString: string) {
+    parsePlateauString(plateauString: string) : Plateau {
         let coordinates = plateauString.split(' ');
 
         let xLimit = parseInt(coordinates[0]);
@@ -26,7 +26,7 @@ export class CommandService {
 
     // Converts a string into a Rover object and returns it
     // TODO: Add error handling for invalid input
-    parseRoverString(roverString: string) {
+    parseRoverString(roverString: string) : Rover | string {
         let items = roverString.split(' ');
 
         let xStart = parseInt(items[0]);
@@ -61,7 +61,7 @@ export class CommandService {
 
     // Converts a string into an Instruction object and returns it
     // TODO: Add error handling
-    parseInstructionsString(instructionsString: string) {
+    parseInstructionsString(instructionsString: string) : Instruction[] {
         let charArray = instructionsString.split('');
         let instructions: Instruction[] = [];
         for (let letter of charArray) {

@@ -1,5 +1,4 @@
 <div class="form-container">
-    
     <form (ngSubmit)="onSubmit()" class="form-group" [formGroup] = "inputForm">
         <h1>Rover Input Form</h1>
         <mat-form-field appearance="fill">
@@ -9,21 +8,18 @@
         </mat-form-field>
         
         <div formArrayName ="roversArray">
-            
             <div class="rover-group" *ngFor="let item of getRoversArray(); let i=index" [formGroupName] = i>
-                
-                    <h5>Rover {{i + 1}} </h5>
-                    <mat-form-field appearance="fill">
-                    <mat-label>Rover Coordinates and Orientation</mat-label>
-                    <input matInput placeholder="1 2 N" formControlName="rover" required>
-                    <!-- <mat-error *ngIf="inputForm.controls.rover.invalid">{{getErrorMessage("rover")}}</mat-error> -->
-                    </mat-form-field>
-                
+                <h5>Rover {{i + 1}} </h5>
+                <mat-form-field appearance="fill">
+                <mat-label>Rover Coordinates and Orientation</mat-label>
+                <input matInput placeholder="1 2 N" formControlName="rover" required>
+                <!-- <mat-error *ngIf="inputForm.controls.rover.invalid">{{getErrorMessage("rover")}}</mat-error> -->
+                </mat-form-field>
                 
                 <mat-form-field appearance="fill">
-                    <mat-label>Instructions</mat-label>
-                    <input matInput placeholder="LMLMLMLMM" formControlName="instructions" required>
-                    <!-- <mat-error *ngIf="inputForm.controls.instructions.invalid">{{getErrorMessage("instructions")}}</mat-error> -->
+                <mat-label>Instructions</mat-label>
+                <input matInput placeholder="LMLMLMLMM" formControlName="instructions" required>
+                <!-- <mat-error *ngIf="inputForm.controls.instructions.invalid">{{getErrorMessage("instructions")}}</mat-error> -->
                 </mat-form-field>
             </div>
         </div>
@@ -49,7 +45,6 @@
                 <td>{{result.y}}</td> 
                 <td>{{result. orientation}}</td>
             </tr>
-
         </table>
     </div>
 </div>

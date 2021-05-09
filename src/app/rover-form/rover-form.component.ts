@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {
-    FormControl,
-    ReactiveFormsModule,
     Validators,
     FormBuilder,
     FormArray,
@@ -35,7 +33,7 @@ export class RoverFormComponent implements OnInit {
     });
 
     // This is the result to be displayed in the output table
-    output: any;
+    output: any = [];
 
     constructor(private fb: FormBuilder, private roverService: RoverService) { }
 
@@ -49,7 +47,7 @@ export class RoverFormComponent implements OnInit {
     // This method handles the warning text that displays beneath our form text boxes when the input is invalid.
 
     // TODO fix this so that it works for the rover group controls
-    getErrorMessage(from: string) {
+    getErrorMessage(from: string) : string {
         let controls = this.inputForm.controls;
 
         if (from === 'plateau') {
