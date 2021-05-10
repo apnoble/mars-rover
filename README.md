@@ -1,27 +1,15 @@
-# MarsRover
+# Mars Rovers
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
+## Set up
+To run this application, you will need Node.js to be installed on your computer. It can be downloaded from [Node JS](https://nodejs.org)
 
-## Development server
+When you want to run the application for the first time, run the command `npm i` in the root directory of the project to download all the necessary dependencies.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Running the Application
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Once you have downloaded the dependencies, you can use the command `npm run start` in the root directory which will launch the app in a new window (or tab) in your default browser.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Unit Testing
+To run the unit tests, you can use the command `npm run test` in the root directory. It will output the results of the tests to the console, but will also display the results in a browser window.
