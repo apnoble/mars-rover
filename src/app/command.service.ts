@@ -14,7 +14,7 @@ export class CommandService {
     constructor() { }
 
     // Converts an input string into a Plateau object and returns it.
-    // TODO add error handling for invalid input
+    // There is front end validation so we know that all our input *should* be valid
     parsePlateauString(plateauString: string) : Plateau {
         let coordinates = plateauString.split(' ');
 
@@ -25,7 +25,7 @@ export class CommandService {
     }
 
     // Converts a string into a Rover object and returns it
-    // TODO: Add error handling for invalid input
+    // There is front end validation so we know that all our input *should* be valid
     parseRoverString(roverString: string) : Rover {
         let items = roverString.split(' ');
 
@@ -41,14 +41,11 @@ export class CommandService {
             case 'S': orientation = Orientation.South; break;
         }
 
-        // if (xStart == undefined || yStart == undefined || orientation == undefined) {
-        //     return "Error: Parsing the rover string failed";
-        // }
         return new Rover(xStart, yStart, orientation);
     }
 
     // Converts a string into an Instruction object and returns it
-    // TODO: Add error handling
+    // There is front end validation so we know that all our input *should* be valid
     parseInstructionsString(instructionsString: string) : Instruction[] {
         let charArray = instructionsString.split('');
         let instructions: Instruction[] = [];

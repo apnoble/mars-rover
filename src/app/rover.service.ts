@@ -21,11 +21,7 @@ export class RoverService {
             let rover: Rover = this.commandService.parseRoverString(item.rover);
             let instructions: Instruction[]= this.commandService.parseInstructionsString(item.instructions);
 
-            if (typeof rover === "string") { 
-                console.log(rover);
-            } else {
-                result.push(this.getEndLocation(plateau, rover, instructions))
-            }
+            result.push(this.getEndLocation(plateau, rover, instructions))
         }
 
         return result;

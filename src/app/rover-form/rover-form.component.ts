@@ -5,6 +5,7 @@ import {
     FormArray
 } from '@angular/forms';
 import { RoverService } from '../rover.service';
+import { strings } from '../constants';
 
 @Component({
     selector: 'app-rover-form',
@@ -46,34 +47,31 @@ export class RoverFormComponent implements OnInit {
     }
 
     // This method handles the warning text that displays beneath our form text boxes when the input is invalid.
-
-    // TODO fix this so that it works for the rover group controls
     getErrorMessage(from: string, item?: any) : string {
         let controls = this.inputForm.controls;
 
         if (from === 'plateau') {
             if (controls.plateau.hasError('required')) {
-                return 'You must enter a value';
-            } else if (controls.plateau.hasError('pattern')) {
-                
-                return 'Please enter two whole numbers separated by a space';
+                return strings.required_message;
+            } else if (controls.plateau.hasError('pattern')) {        
+                return strings.plateau_pattern_message;
             }
         } else if (from === 'rover') {
             if (item.controls.rover.hasError('required')) {
-                return 'You must enter a value';
+                return strings.required_message;
             }
 
             if (item.controls.rover.hasError('pattern')) {
-                return 'Please enter two whole numbers, and a direction (N, S, E, or W), separated by spaces e.g. 12 5 W';
+                return strings.rover_pattern_message;
             }
 
         } else if (from === 'instructions') {
             if (item.controls.instructions.hasError('required')) {
-                return 'You must enter a value';
+                return strings.required_message;
             }
 
             if (item.controls.instructions.hasError('pattern')) {
-                return 'Please enter a string of instructions with no spaces and only the values L, R, or M e.g. LMLMLMLMLMLMR';
+                return strings.instructions_pattern_message;
             }
         }
 
