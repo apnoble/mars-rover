@@ -13,13 +13,13 @@
                 <mat-form-field appearance="fill">
                 <mat-label>Rover Coordinates and Orientation</mat-label>
                 <input matInput placeholder="1 2 N" formControlName="rover" required>
-                <!-- <mat-error *ngIf="inputForm.controls.rover.invalid">{{getErrorMessage("rover")}}</mat-error> -->
+                <mat-error *ngIf="item.invalid">{{getErrorMessage("rover", item)}}</mat-error>
                 </mat-form-field>
                 
                 <mat-form-field appearance="fill">
                 <mat-label>Instructions</mat-label>
                 <input matInput placeholder="LMLMLMLMM" formControlName="instructions" required>
-                <!-- <mat-error *ngIf="inputForm.controls.instructions.invalid">{{getErrorMessage("instructions")}}</mat-error> -->
+                <mat-error *ngIf="item.invalid">{{getErrorMessage("instructions", item)}}</mat-error>
                 </mat-form-field>
             </div>
         </div>

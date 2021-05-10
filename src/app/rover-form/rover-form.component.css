@@ -41,6 +41,8 @@
 .output-table th,
 .output-table td {
     padding: 12px 15px;
+    min-width: 70px;
+    text-align: center;
 }
 
 .output-table tbody tr {
