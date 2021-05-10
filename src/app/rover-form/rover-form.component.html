@@ -32,7 +32,8 @@
     </form>
     <div>
         <h1>Rover Output Table</h1>
-        <table class="output-table">
+        <h3 *ngIf="output.length === 0">No Rovers to Display</h3>
+        <table class="output-table" *ngIf="output.length > 0">
             <thead>
                 <tr>
                     <th>#</th>
@@ -44,9 +45,10 @@
             <tbody>
                 <tr *ngFor = "let result of output; let roverNumber = index">
                     <td>Rover # {{roverNumber + 1}}</td>
-                    <td>{{result.x}}</td>
-                    <td>{{result.y}}</td> 
-                    <td>{{result. orientation}}</td>
+                    <td *ngIf="result.isOutOfBounds === true" colspan="3">Rover start location is out of bounds</td>
+                    <td *ngIf="result.isOutOfBounds === false">{{result.x}}</td>
+                    <td *ngIf="result.isOutOfBounds === false">{{result.y}}</td> 
+                    <td *ngIf="result.isOutOfBounds === false">{{result. orientation}}</td>
                 </tr>
             </tbody>
         </table>

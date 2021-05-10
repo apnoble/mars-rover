@@ -26,13 +26,13 @@ export class CommandService {
 
     // Converts a string into a Rover object and returns it
     // TODO: Add error handling for invalid input
-    parseRoverString(roverString: string) : Rover | string {
+    parseRoverString(roverString: string) : Rover {
         let items = roverString.split(' ');
 
         let xStart = parseInt(items[0]);
         let yStart = parseInt(items[1]);
 
-        let orientation;
+        let orientation: Orientation = Orientation.North;
 
         switch (items[2]) {
             case 'N': orientation = Orientation.North; break;
@@ -41,9 +41,9 @@ export class CommandService {
             case 'S': orientation = Orientation.South; break;
         }
 
-        if (xStart == undefined || yStart == undefined || orientation == undefined) {
-            return "Error: Parsing the rover string failed";
-        }
+        // if (xStart == undefined || yStart == undefined || orientation == undefined) {
+        //     return "Error: Parsing the rover string failed";
+        // }
         return new Rover(xStart, yStart, orientation);
     }
 

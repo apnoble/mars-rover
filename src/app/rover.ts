@@ -3,19 +3,21 @@ import { Orientation } from './orientation';
 
 export class Rover {
 
-    xLoc;
-    yLoc;
-    orientation;
+    x:number;
+    y:number;
+    orientation:Orientation;
+    isOutOfBounds?:boolean;
 
-    constructor(xLoc:number, yLoc:number, orientation:Orientation) {
-        this.xLoc = xLoc;
-        this.yLoc = yLoc;
+    constructor(x:number, y:number, orientation:Orientation, isOutOfBounds:boolean = false) {
+        this.x = x;
+        this.y = y;
         this.orientation = orientation;
+        this.isOutOfBounds = isOutOfBounds;
     }
     getX() : number {
-        return this.xLoc;
+        return this.x;
     }
     getY() : number {
-        return this.yLoc;
+        return this.y;
     }
 }
