@@ -5,6 +5,11 @@
 h1 {
     text-align: center;
 }
+
+h3 {
+    text-align: center;
+}
+
 .form-container {
     display:flex;
     flex-direction: row;
@@ -30,7 +35,6 @@ h1 {
     margin-bottom: 5%;
 }
 
-
 .output-table {
     min-width: 400px;
     margin: 25px 0;
@@ -39,6 +43,7 @@ h1 {
 
 .output-table thead tr {
     background-color: #EE6002;
+    margin-bottom: 20px;
 }
 
 .output-table th,
@@ -54,6 +59,10 @@ h1 {
 
 .output-table tbody tr:last-of-type {
     border-bottom: 2px solid black;
+}
+
+.material-table {
+    margin-bottom: 50px;
 }
 
 .rover-group mat-form-field {

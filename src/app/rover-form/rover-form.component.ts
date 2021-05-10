@@ -34,6 +34,7 @@ export class RoverFormComponent implements OnInit {
 
     // This is the result to be displayed in the output table
     output: any = [];
+    displayedColumns: string[] = ['num', 'x', 'y', 'orientation'];
 
     constructor(private fb: FormBuilder, private roverService: RoverService) { }
 

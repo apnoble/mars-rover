@@ -30,10 +30,38 @@
         
         <button mat-raised-button color="primary" [disabled]="!inputForm.valid" type="submit">Submit</button>
     </form>
-    <div>
+    <div class="output-table">
         <h1>Rover Output Table</h1>
+    
+        <table mat-table [dataSource]="output" class="mat-elevation-z8 material-table">
+    
+            <ng-container matColumnDef="num">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let item; let i=index;"> {{i + 1}}</td>
+            </ng-container>
+          
+            <ng-container matColumnDef="x">
+              <th mat-header-cell *matHeaderCellDef> X </th>
+              <td mat-cell *matCellDef="let item"> {{item.isOutOfBounds ? "Rover is" : item.x}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="y">
+              <th mat-header-cell *matHeaderCellDef> Y </th>
+              <td mat-cell *matCellDef="let item"> {{item.isOutOfBounds ? "Out of" : item.y}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="orientation">
+              <th mat-header-cell *matHeaderCellDef> Orientation </th>
+              <td mat-cell *matCellDef="let item"> {{item.isOutOfBounds ? "Bounds" : item.orientation}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
         <h3 *ngIf="output.length === 0">No Rovers to Display</h3>
-        <table class="output-table" *ngIf="output.length > 0">
+
+        <!-- <table class="output-table" *ngIf="output.length > 0">
             <thead>
                 <tr>
                     <th>#</th>
@@ -48,9 +76,9 @@
                     <td *ngIf="result.isOutOfBounds === true" colspan="3">Rover start location is out of bounds</td>
                     <td *ngIf="result.isOutOfBounds === false">{{result.x}}</td>
                     <td *ngIf="result.isOutOfBounds === false">{{result.y}}</td> 
-                    <td *ngIf="result.isOutOfBounds === false">{{result. orientation}}</td>
+                    <td *ngIf="result.isOutOfBounds === false">{{result.orientation}}</td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
     </div>
 </div>
