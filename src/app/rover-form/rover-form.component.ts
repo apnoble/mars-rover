@@ -27,7 +27,7 @@ export class RoverFormComponent implements OnInit {
                 ]),
                 instructions: this.fb.control('', [
                     Validators.required,
-                    Validators.pattern('[LMN]+'),
+                    Validators.pattern('[LMR]+'),
                 ]),
             }),
         ]),
