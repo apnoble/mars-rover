@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
     Validators,
     FormBuilder,
-    FormArray,
+    FormArray
 } from '@angular/forms';
 import { RoverService } from '../rover.service';
 
