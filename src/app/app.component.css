@@ -1,15 +1,12 @@
-.outside-container {
-    background-color: #EE6002;
-    /* padding: .1%;
-    height: 95%; */
-}
-
 .app-container {
     /* margin: 5%; */
     background-color: white;
     /* height: 75%; */
     border: 10px solid #EE6002;
     padding-bottom: 70px;
+
+    display:flex;
+    flex-direction: column;
 }
 
 .app-header {

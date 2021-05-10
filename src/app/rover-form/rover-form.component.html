@@ -9,7 +9,7 @@
         
         <div formArrayName ="roversArray">
             <div class="rover-group" *ngFor="let item of getRoversArray(); let i=index" [formGroupName] = i>
-                <h5>Rover {{i + 1}} </h5>
+                <h4>Rover {{i + 1}} </h4>
                 <mat-form-field appearance="fill">
                 <mat-label>Rover Coordinates and Orientation</mat-label>
                 <input matInput placeholder="1 2 N" formControlName="rover" required>
@@ -33,18 +33,22 @@
     <div>
         <h1>Rover Output Table</h1>
         <table class="output-table">
-            <tr>
-                <th>#</th>
-                <th>X</th>
-                <th>Y</th>
-                <th>Orientation</th>
-            </tr>
-            <tr *ngFor = "let result of output; let roverNumber = index">
-                <td>Rover # {{roverNumber + 1}}</td>
-                <td>{{result.x}}</td>
-                <td>{{result.y}}</td> 
-                <td>{{result. orientation}}</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>X</th>
+                    <th>Y</th>
+                    <th>Orientation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let result of output; let roverNumber = index">
+                    <td>Rover # {{roverNumber + 1}}</td>
+                    <td>{{result.x}}</td>
+                    <td>{{result.y}}</td> 
+                    <td>{{result. orientation}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>
