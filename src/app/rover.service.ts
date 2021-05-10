@@ -71,42 +71,18 @@ export class RoverService {
 			}
 			else if (instruction === Instruction.TurnLeft) {
 				switch (rover.orientation) {
-					case Orientation.North: {
-					  	rover.orientation = Orientation.West;
-					  	break;
-					}
-					case Orientation.South: {
-						rover.orientation = Orientation.East;
-					  	break;
-					}
-					case Orientation.East: {
-						rover.orientation = Orientation.North;
-					  	break;
-					}
-					case Orientation.West: {
-						rover.orientation = Orientation.South;
-						break;
-					}
+					case Orientation.North: rover.orientation = Orientation.West; break;
+					case Orientation.South: rover.orientation = Orientation.East; break;
+					case Orientation.East: rover.orientation = Orientation.North; break;
+					case Orientation.West: rover.orientation = Orientation.South; break;
 				}
 			}
 			else if (instruction === Instruction.TurnRight) {
 				switch (rover.orientation) {
-					case Orientation.North: {
-					  	rover.orientation = Orientation.East;
-					  	break;
-					}
-					case Orientation.South: {
-						rover.orientation = Orientation.West;
-					  	break;
-					}
-					case Orientation.East: {
-						rover.orientation = Orientation.South;
-					  	break;
-					}
-					case Orientation.West: {
-						rover.orientation = Orientation.North;
-						break;
-					}
+					case Orientation.North: rover.orientation = Orientation.East; break;
+					case Orientation.South: rover.orientation = Orientation.West; break;
+					case Orientation.East: rover.orientation = Orientation.South; break;
+					case Orientation.West: rover.orientation = Orientation.North; break;
 				}
 			}
 		}

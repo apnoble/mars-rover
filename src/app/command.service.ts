@@ -35,22 +35,10 @@ export class CommandService {
         let orientation;
 
         switch (items[2]) {
-            case 'N': {
-                orientation = Orientation.North;
-                break;
-            }
-            case 'W': {
-                orientation = Orientation.West;
-                break;
-            }
-            case 'E': {
-                orientation = Orientation.East;
-                break;
-            }
-            case 'S': {
-                orientation = Orientation.South;
-                break;
-            }
+            case 'N': orientation = Orientation.North; break;
+            case 'W': orientation = Orientation.West; break;
+            case 'E': orientation = Orientation.East; break;
+            case 'S': orientation = Orientation.South; break;
         }
 
         if (xStart == undefined || yStart == undefined || orientation == undefined) {
@@ -67,18 +55,9 @@ export class CommandService {
         for (let letter of charArray) {
             let instruction;
             switch (letter) {
-                case 'L': {
-                    instruction = Instruction.TurnLeft;
-                    break;
-                }
-                case 'M': {
-                    instruction = Instruction.MoveForward;
-                    break;
-                }
-                case 'R': {
-                    instruction = Instruction.TurnRight;
-                    break;
-                }
+                case 'L': instruction = Instruction.TurnLeft; break;
+                case 'M': instruction = Instruction.MoveForward; break;
+                case 'R': instruction = Instruction.TurnRight; break;
             }
             if (instruction != undefined) instructions.push(instruction);
         }
