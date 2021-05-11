@@ -1,11 +1,8 @@
-import { InstantiateExpr } from '@angular/compiler';
 import { TestBed } from '@angular/core/testing';
 import { Orientation } from './orientation';
 import { Plateau } from './plateau';
 import { Rover } from './rover';
 import { Instruction } from './instruction';
-
-
 import { RoverService } from './rover.service';
 
 describe('RoverService', () => {
@@ -70,12 +67,5 @@ describe('RoverService', () => {
         });
 
         // TODO tests to check each path of orientation and moves is working properly
-        it('should update the cur location if the next spot is valid', () => {
-
-        });
-
-        it('should not update the cur location is the next spot is invalid', () => {
-
-        });
     })
 });

@@ -8,7 +8,6 @@ export class Plateau {
         this.yLimit = yLimit;
     }
 
-    // I'm not sure if this should be a public method
     public doesLocationExist(x: number, y: number) {
         return (x <= this.xLimit && y <= this.yLimit && x >= 0 && y >= 0);
     }
