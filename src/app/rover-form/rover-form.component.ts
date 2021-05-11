@@ -23,11 +23,11 @@ export class RoverFormComponent implements OnInit {
             this.fb.group({
                 rover: this.fb.control('', [
                     Validators.required,
-                    Validators.pattern('[0-9]+\\s[0-9]+\\s[NSEW]'),
+                    Validators.pattern('[0-9]+\\s[0-9]+\\s[NSEWnsew]'),
                 ]),
                 instructions: this.fb.control('', [
                     Validators.required,
-                    Validators.pattern('[LMR]+'),
+                    Validators.pattern('[LMRlmr]+'),
                 ]),
             }),
         ]),
@@ -89,11 +89,11 @@ export class RoverFormComponent implements OnInit {
             this.fb.group({
                 rover: this.fb.control('', [
                     Validators.required,
-                    Validators.pattern('[0-9]+\\s[0-9]+\\s[NSEW]'),
+                    Validators.pattern('[0-9]+\\s[0-9]+\\s[NSEWnsew]'),
                 ]),
                 instructions: this.fb.control('', [
                     Validators.required,
-                    Validators.pattern('[LMN]+'),
+                    Validators.pattern('[LMRlmr]+'),
                 ]),
             })
         );

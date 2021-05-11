@@ -55,14 +55,14 @@ export class RoverService {
 					  	break;
 					}
 					case Orientation.East: {
-						if (plateau.doesLocationExist(curX - 1, curY)) {
-							curX--;
+						if (plateau.doesLocationExist(curX + 1, curY)) {
+							curX++;
 						}
 					  	break;
 					}
 					case Orientation.West: {
-						if (plateau.doesLocationExist(curX + 1, curY)) {
-							curX++;
+						if (plateau.doesLocationExist(curX - 1, curY)) {
+							curX--;
 						}
 						break;
 					}
