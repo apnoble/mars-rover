@@ -21,3 +21,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 If you run into issues it might be helpful to install the angular-cli (but I believe it is not necessary for it to be installed) or consult the help page at [Angular CLI Overview and Command Reference](https://angular.io/cli)
 
 Thank you!
+
+## Screenshot of Running App
+![alt text](marsroversscreenshot.PNG "Screenshot of App")

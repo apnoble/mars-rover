@@ -91,7 +91,7 @@ h4 {
 .scrollable {
   overflow-y: scroll;
   border-bottom: 1px solid lightgrey;
-  height: 350px;
+  height: 500px;
   padding: 1rem;
   overscroll-behavior-y: contain;
   scroll-snap-type: y proximity;
